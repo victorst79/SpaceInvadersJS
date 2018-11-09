@@ -9,18 +9,6 @@ export class Player{
         this.ship = document.createElementNS("http://www.w3.org/2000/svg","rect");
     }
 
-    move(){
-        
-    }
-
-    shoot(){
-
-    }
-
-    state(){
-
-    }
-
     getPositionPlayerX(){
         return this.x;
     }
