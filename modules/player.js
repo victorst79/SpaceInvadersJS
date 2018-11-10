@@ -9,7 +9,7 @@ export class Player{
         this.health = health;
         // HTML Element
         this.ship = document.createElementNS("http://www.w3.org/2000/svg","rect");
-
+        this.ship.setAttribute("id","player");
         this.ship.setAttribute("width",50);
         this.ship.setAttribute("height",20);
         this.ship.setAttribute("x", this.x);
