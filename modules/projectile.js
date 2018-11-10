@@ -1,9 +1,12 @@
 export class Projectile{
-    constructor(x,y,elementID){
+    constructor(x,y){
         this.x = x;
         this.y = y;
         // HTML Element
-        this.bullet = document.createElementNS("http://www.w3.org/2000/svg","rect");
+        this.bullet = document.createElementNS("http://www.w3.org/2000/svg","rect");        
+    }
+
+    print(elementID){
         this.bullet.setAttribute("id","projectile");
         this.bullet.setAttribute("width",10);
         this.bullet.setAttribute("height",25);

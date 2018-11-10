@@ -6,11 +6,14 @@ var player = new Player(225,450,100,"game-screen");
 var invaders = new Array;
 var projectiles = new Array;
 var evento;
-
+player.print("game-screen");
 console.log(player);
 
 // FUNCTIONS
 
+function controlProjectiles(){
+
+}
 
 document.addEventListener("keydown", (event) =>{
     var key = event.keyCode;
@@ -29,23 +32,10 @@ document.addEventListener("keydown", (event) =>{
     }
     // Player shoots
     if(key == 32){
-        projectiles.push(new Projectile(player.x + 20,(player.y - 25),"game-screen"));        
+        var bullet = new Projectile(player.x + 20,(player.y - 25));
+        bullet.print("game-screen");
+        projectiles.push(bullet);        
         console.log(projectiles);
     }
 });
 
-if(projectiles != null){
-    console.log("vacio");
-}else{
-    console.log("lleno");
-}
-
-// Invaders Definition
-// function generateInvaders(enemies){
-//     for(let i = 0; i <= enemies; i++){
-//         invaders[i] = new Invaders(5,5);
-//     }
-//     return invaders;
-// }
-
-// console.log(generateInvaders(5));

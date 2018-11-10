@@ -1,5 +1,5 @@
 export class Player{
-    constructor(x,y,health,elementID){
+    constructor(x,y,health){
         // Player's initial position
         this.x = x;
         this.y = y;
@@ -8,7 +8,10 @@ export class Player{
         // Player Health
         this.health = health;
         // HTML Element
-        this.ship = document.createElementNS("http://www.w3.org/2000/svg","rect");
+        this.ship = document.createElementNS("http://www.w3.org/2000/svg","rect");        
+    }
+
+    print(elementID){
         this.ship.setAttribute("id","player");
         this.ship.setAttribute("width",50);
         this.ship.setAttribute("height",20);
