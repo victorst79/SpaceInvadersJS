@@ -7,11 +7,20 @@ export class Invaders{
         this.alien = document.createElementNS("http://www.w3.org/2000/svg","rect");
     }
 
-    positionX(){
+    print(elementID){
+        this.alien.setAttribute("id","alien");
+        this.alien.setAttribute("width",50);
+        this.alien.setAttribute("height",30);
+        this.alien.setAttribute("x", this.x);
+        this.alien.setAttribute("y", this.y);
+        document.getElementById(elementID).appendChild(this.alien);
+    }
 
+    positionX(){
+        return this.x;
     }
 
     positionY(){
-        
+        return this.y;
     }
 }
