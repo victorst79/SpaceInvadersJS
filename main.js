@@ -11,7 +11,9 @@ class Game{
     constructor(elementID){
         // VARIABLES
         this.playerMove = false;
-        this.playerDirection = "";
+        this.directionLeft = false;
+        this.directionRight = false;
+        this.bullets = [];
 
         // CONST
         const keyShoot = 32;
@@ -30,18 +32,19 @@ class Game{
         // EVENTS
         document.addEventListener("keydown", (event) => {
             var key = event.keyCode;
-            
+            this.playerMove = true;
+
+            // Player active movements
             if(key == keyLeft){
-                this.playerMove = true;
-                this.playerDirection = "left";
+                this.directionLeft = true;
             }else if(key == keyRight){
-                this.playerMove = true;
-                this.playerDirection = "right";
+                this.directionRight = true;
             }
 
             // Player shoots
-            else if(key == keyShoot){
-                var bullet = new Projectile(player.x + 20,(player.y - 25),"game-screen");
+            if(key == keyShoot){
+                this.bullets.push(new Projectile(player.x + 20,(player.y - 25),"game-screen"));
+                // SHOOT AUDIO EVENT
                 var audio = new Audio('./resources/sounds/shoot.wav');
                 audio.play();
             }
@@ -49,12 +52,13 @@ class Game{
 
         document.addEventListener("keyup", (event) => {
             var key = event.keyCode;
-            
+            this.playerMove = false;
+
+            // Player desactive movements
             if(key == keyLeft){
-                this.playerMove = false;
-            }
-            else if(key == keyRight){
-                this.playerMove = false;
+                this.directionLeft = false;
+            }else if(key == keyRight){
+                this.directionRight = false;
             }
         });
     }
@@ -62,18 +66,16 @@ class Game{
     // INITIAL GAME
     init(){
         setInterval(() => {
-            if(this.playerMove == true){
-                if(this.playerDirection == "left"){
-                    this.player.move(this.playerDirection);
-                    this.player.print();
-                }else if(this.playerDirection == "right"){
-                    this.player.move(this.playerDirection);
-                    this.player.print();
-                }
+           // Player movements
+           if(this.playerMove == true){
+            if(this.directionLeft == true){
+                this.player.move("left");
+                this.player.print();
+            }else if(this.directionRight == true){
+                this.player.move("right");
+                this.player.print();
             }
-            if(this.playerMove == false){
-
-            }
+        }else if(this.playerMove == false){}
         },10);
     }
 }

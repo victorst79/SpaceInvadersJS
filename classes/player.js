@@ -28,10 +28,9 @@ export class Player{
     move(direction){
         if(direction == "left"){
             this.x -= 5;
-        }
-        else if(direction == "right"){
+        }else if(direction == "right"){
             this.x += 5;
-        }
+        }              
     }
 
     print(){
