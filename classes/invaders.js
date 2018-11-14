@@ -13,7 +13,7 @@ export class Invaders{
         document.getElementById(elementID).appendChild(this.alien);
     }
     
-    mueve(){
+    move(){
         this.y += 3;
     }
 

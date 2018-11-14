@@ -25,12 +25,17 @@ export class Player{
         this.ship.setAttribute("y", this.y);
     }
 
-    mueve(){
-        
+    move(direction){
+        if(direction == "left"){
+            this.x -= 5;
+        }
+        else if(direction == "right"){
+            this.x += 5;
+        }
     }
 
-    dibuja(){
-
+    print(){
+        this.ship.setAttribute("x",this.x);
     }
 
     getPositionPlayerX(){
