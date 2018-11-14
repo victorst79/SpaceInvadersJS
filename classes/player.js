@@ -8,7 +8,7 @@ export class Player{
     * @param {Number} health Player Health.
     * @param {String} elementID ID or Class of element.
     */
-    constructor(x,y,health,elementID){
+    constructor(x,y,health){
         // Player's initial position
         this.x = x;
         this.y = y;
@@ -23,7 +23,14 @@ export class Player{
         this.ship.setAttribute("height",20);
         this.ship.setAttribute("x", this.x);
         this.ship.setAttribute("y", this.y);
-        document.getElementById(elementID).appendChild(this.ship);      
+    }
+
+    mueve(){
+        
+    }
+
+    dibuja(){
+
     }
 
     getPositionPlayerX(){

@@ -1,5 +1,7 @@
 #game-screen{
     border: solid 1px black;
+    width: 500px;
+    height: 500px;
 }
 
 #player{

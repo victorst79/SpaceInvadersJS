@@ -12,6 +12,14 @@ export class Invaders{
         this.alien.setAttribute("y", this.y);
         document.getElementById(elementID).appendChild(this.alien);
     }
+    
+    mueve(){
+        this.y += 3;
+    }
+
+    dibujar(){
+        this.alien.setAttribute("y",this.y);
+    }
 
     positionX(){
         return this.x;

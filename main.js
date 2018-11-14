@@ -2,8 +2,25 @@ import {Player} from './classes/player.js';
 import {Invaders} from './classes/invaders.js';
 import {Projectile} from './classes/projectile.js';
 
-var player = new Player(225,450,100,"game-screen");
+
 var invaders = new Array;
+
+// CLASS
+
+class Game{
+    constructor(elementID){
+        // GAME SCREEN CREATION
+        this.gameScreen = document.createElementNS("http://www.w3.org/2000/svg","svg");
+        this.gameScreen.setAttribute("id","game-screen");
+        document.getElementById(elementID).appendChild(this.gameScreen);
+        
+        // PLAYER CREATION
+        var player = new Player(225,450,100);
+        this.gameScreen.appendChild(player.ship);
+    }
+}
+
+new Game("game");
 
 // FUNCTIONS
 
@@ -18,12 +35,12 @@ function createInvaders(n){
 
 createInvaders(5);
 
-// 
+// EVENTS
 
 document.addEventListener("keydown", (event) => {
     var key = event.keyCode;
     
-    // Player mevements
+    // Player movements
     if(player.x > 0){
         if(key == 37){
             player.x = player.x - (player.speed * 5);
@@ -45,6 +62,7 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
+// LOOP GAME
 var bullets;
 var bulletsPosition;
 setInterval( () => {
