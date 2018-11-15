@@ -13,6 +13,7 @@ class Game{
         this.playerMove = false;
         this.directionLeft = false;
         this.directionRight = false;
+        this.bullet;
         this.bullets = [];
 
         // CONST
@@ -39,11 +40,14 @@ class Game{
                 this.directionLeft = true;
             }else if(key == keyRight){
                 this.directionRight = true;
-            }
+            }else
 
             // Player shoots
             if(key == keyShoot){
-                this.bullets.push(new Projectile(player.x + 20,(player.y - 25),"game-screen"));
+                this.bullet = new Projectile(this.player.x + 20,(this.player.y - 25));
+                this.bullets.push(this.bullet);
+                document.getElementById("game-screen").appendChild(this.bullet.bullet);
+                
                 // SHOOT AUDIO EVENT
                 var audio = new Audio('./resources/sounds/shoot.wav');
                 audio.play();
@@ -67,15 +71,22 @@ class Game{
     init(){
         setInterval(() => {
            // Player movements
-           if(this.playerMove == true){
-            if(this.directionLeft == true){
-                this.player.move("left");
-                this.player.print();
-            }else if(this.directionRight == true){
-                this.player.move("right");
-                this.player.print();
+            if(this.playerMove == true){
+                if(this.directionLeft == true){
+                    this.player.move("left");
+                    this.player.print();
+                }else if(this.directionRight == true){
+                    this.player.move("right");
+                    this.player.print();
+                }
+            }else if(this.playerMove == false){}
+            
+            if(this.bullets.length != 0){
+                for(let i = 0;i < this.bullets.length; i++){
+                    this.bullets[i].move();
+                    this.bullets[i].print();                            
+                }
             }
-        }else if(this.playerMove == false){}
         },10);
     }
 }

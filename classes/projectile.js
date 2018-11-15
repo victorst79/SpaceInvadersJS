@@ -1,5 +1,5 @@
 export class Projectile{
-    constructor(x,y,elementID){
+    constructor(x,y){
         this.x = x;
         this.y = y;
         // HTML Element
@@ -9,7 +9,14 @@ export class Projectile{
         this.bullet.setAttribute("height",25);
         this.bullet.setAttribute("x", this.x);
         this.bullet.setAttribute("y", this.y);
-        document.getElementById(elementID).appendChild(this.bullet);    
+    }
+
+    move(){
+        this.y -= 5;       
+    }
+
+    print(){
+        this.bullet.setAttribute("y",this.y);
     }
 
     getPositionX(){
