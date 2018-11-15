@@ -25,6 +25,11 @@ export class Player{
         this.ship.setAttribute("y", this.y);
     }
 
+    /**
+    * Set the direction in which the object `Player` will move in the game.
+    * 
+    * @param {String} direction Sense of movement.
+    */
     move(direction){
         if(direction == "left"){
             this.x -= 5;
@@ -33,18 +38,36 @@ export class Player{
         }              
     }
 
+    /**
+    * Print the HTML element with the modified `x` attribute in the DOM. 
+    */
     print(){
         this.ship.setAttribute("x",this.x);
     }
 
+    /**
+    *  Returns the value of the `x` position of the `Player` object
+    * 
+    * @return {Number} x
+    */
     getPositionPlayerX(){
         return this.x;
     }
 
+    /**
+    * Returns the value of the `y` position of the `Player` object 
+    * 
+    * @return {Number} y
+    */
     getPositionPlayerY(){
         return this.y;
     }
 
+    /**
+    * Returns the value of 'Health' of the object `Player` object
+    * 
+    * @return {Number} health
+    */
     getHealthPlayer(){
         return this.health;
     }
