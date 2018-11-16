@@ -28,20 +28,22 @@ class Game{
 
         // EVENTS
         document.addEventListener("keydown", (event) => {
-            event.preventDefault();
             var key = event.keyCode;
             this.playerMove = true;
 
             // Player active movements
             if(key == keyLeft){
+                event.preventDefault();
                 this.directionLeft = true;
             }
             if(key == keyRight){
+                event.preventDefault();
                 this.directionRight = true;
             }
             
             // Player shoots
             if(key == keyShoot){
+                event.preventDefault();
                 this.bullet = new Projectile(this.player.x + 20,(this.player.y - 25));
                 this.bullets.push(this.bullet);
                 document.getElementById("game-screen").appendChild(this.bullet.bullet);
