@@ -1,22 +1,22 @@
+body{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+img.title{
+    width: 800px;
+    height: 300px;
+}
+
 #game-screen{
     border: solid 1px black;
     width: 500px;
     height: 500px;
+    background-image: url("../resources/sprites/giphy.gif");
+    margin-top: 50px;
 }
 
-#player{
-    background-color: black;
-}
-
-#projectile{
-    background-color: red;
-}
-
-#alien{
-    background-color: green;
-}
-
-.player{
-    background-image: url('../resources/sprites/si_characters.eps.png');
-}
 

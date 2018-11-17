@@ -18,10 +18,13 @@ export class Invaders{
         }else if(direction == "right"){
             this.x += 0.1;
         }else if(direction == "front"){
-            this.y += 0.1;
+            this.y += 0.05;
         }
     }
 
+    moveFront(){
+        this.y += 0.1;
+    }
     print(){
         this.alien.setAttribute("x",this.x);
         this.alien.setAttribute("y",this.y);

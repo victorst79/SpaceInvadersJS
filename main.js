@@ -33,7 +33,7 @@ class Game{
         // INVADERS CREATION
         for(let i = 0; i < 3; i++){
             if(i == 0){
-                var x = 20;
+                var x = 50;
                 var y = 40;
                 for(let i = 0; i < 10; i++){
                     this.invader = new Invaders(x,y);
@@ -42,7 +42,7 @@ class Game{
                     x+=40;
                 }
             }else if(i == 1){
-                var x = 20;
+                var x = 50;
                 var y = 60;
                 for(let i = 0; i < 10; i++){
                     this.invader = new Invaders(x,y);
@@ -51,7 +51,7 @@ class Game{
                     x+=40;
                 }
             }else if(i == 2){
-                var x = 20;
+                var x = 50;
                 var y = 80;
                 for(let i = 0; i < 10; i++){
                     this.invader = new Invaders(x,y);
@@ -108,7 +108,6 @@ class Game{
     // INITIAL GAME
     init(){
         setInterval(() => {
-            var jump = false;
 
            // Player movements
             if(this.playerMove == true){
@@ -141,7 +140,16 @@ class Game{
             }
 
             // Advance of the Invaders
-           
+            for(let i = 0; i < this.invaders.length; i++){
+                // if(this.invaders[0].x >= 30){
+                //     this.invaders[i].move("left");
+                // }
+                // if(this.invaders[0].x <= 30){
+                //     this.invaders[i].move("right");
+                // }
+                // this.invaders[i].move("front");
+                // this.invaders[i].print();
+            }
         },10);
     }
 }
