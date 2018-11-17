@@ -16,3 +16,7 @@
     background-color: green;
 }
 
+.player{
+    background-image: url('../resources/sprites/si_characters.eps.png');
+}
+

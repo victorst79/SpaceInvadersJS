@@ -11,6 +11,8 @@ class Game{
         this.directionRight = false;
         this.bullet;
         this.bullets = [];
+        this.invader;
+        this.invaders = [];
 
         // CONST
         const keyShoot = 32;
@@ -22,9 +24,43 @@ class Game{
         this.gameScreen.setAttribute("id","game-screen");
         document.getElementById(elementID).appendChild(this.gameScreen);
         
+
         // PLAYER CREATION
         this.player = new Player(225,450,100);
         this.gameScreen.appendChild(this.player.ship);
+
+
+        // INVADERS CREATION
+        for(let i = 0; i < 3; i++){
+            if(i == 0){
+                var x = 20;
+                var y = 40;
+                for(let i = 0; i < 10; i++){
+                    this.invader = new Invaders(x,y);
+                    this.invaders.push(this.invader);
+                    document.getElementById("game-screen").appendChild(this.invader.alien);
+                    x+=40;
+                }
+            }else if(i == 1){
+                var x = 20;
+                var y = 60;
+                for(let i = 0; i < 10; i++){
+                    this.invader = new Invaders(x,y);
+                    this.invaders.push(this.invader);
+                    document.getElementById("game-screen").appendChild(this.invader.alien);
+                    x+=40;
+                }
+            }else if(i == 2){
+                var x = 20;
+                var y = 80;
+                for(let i = 0; i < 10; i++){
+                    this.invader = new Invaders(x,y);
+                    this.invaders.push(this.invader);
+                    document.getElementById("game-screen").appendChild(this.invader.alien);
+                    x+=40;
+                }
+            }
+        }
 
         // EVENTS
         document.addEventListener("keydown", (event) => {
@@ -68,12 +104,15 @@ class Game{
         });
     }
 
+
     // INITIAL GAME
     init(){
         setInterval(() => {
+            var jump = false;
+
            // Player movements
             if(this.playerMove == true){
-                // Collisions
+                // Lateral collisions
                 if(this.player.x >= 0){
                     if(this.directionLeft == true){
                         this.player.move("left");
@@ -91,10 +130,18 @@ class Game{
             // Advance of the bullets
             if(this.bullets.length != 0){                
                 for(let i = 0;i < this.bullets.length; i++){
-                    this.bullets[i].move();
-                    this.bullets[i].print();                            
+                    // Top collision
+                    if(this.bullets[i].y <= 0){
+                        this.bullets[i].bullet.remove();
+                    }else{
+                        this.bullets[i].move();
+                        this.bullets[i].print();
+                    }   
                 }
             }
+
+            // Advance of the Invaders
+           
         },10);
     }
 }
