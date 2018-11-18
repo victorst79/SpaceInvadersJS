@@ -13,6 +13,7 @@ class Game{
         this.bullets = [];
         this.invader;
         this.invaders = [];
+        this.invadersDirection = false;
 
         // CONST
         const keyShoot = 32;
@@ -104,10 +105,10 @@ class Game{
         });
     }
 
-
     // INITIAL GAME
     init(){
         setInterval(() => {
+            var direction = "right";            
 
            // Player movements
             if(this.playerMove == true){
@@ -140,15 +141,27 @@ class Game{
             }
 
             // Advance of the Invaders
-            for(let i = 0; i < this.invaders.length; i++){
-                // if(this.invaders[0].x >= 30){
-                //     this.invaders[i].move("left");
-                // }
-                // if(this.invaders[0].x <= 30){
-                //     this.invaders[i].move("right");
-                // }
-                // this.invaders[i].move("front");
-                // this.invaders[i].print();
+            
+            
+
+            for(let i = 0; i < this.invaders.length; i++){                
+                if(this.invaders[i].x <= 0){
+                    this.invadersDirection = true;
+                }
+                if(this.invaders[i].x >= 500){
+                    this.invadersDirection = false;
+                }
+
+                if(this.invadersDirection = true){
+                    this.invaders[i].move("right");
+                    this.invaders[i].move("front");
+                    this.invaders[i].print();
+                }else{
+                    this.invaders[i].move("left");
+                    this.invaders[i].move("front");
+                    this.invaders[i].print();
+                }
+                
             }
         },10);
     }
