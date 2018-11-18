@@ -142,8 +142,6 @@ class Game{
 
             // Advance of the Invaders
             
-            
-
             for(let i = 0; i < this.invaders.length; i++){                
                 if(this.invaders[i].x <= 0){
                     this.invadersDirection = true;
