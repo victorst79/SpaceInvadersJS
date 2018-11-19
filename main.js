@@ -13,7 +13,6 @@ class Game{
         this.bullets = [];
         this.invader;
         this.invaders = [];
-        this.invadersDirection = false;
 
         // CONST
         const keyShoot = 32;
@@ -34,7 +33,7 @@ class Game{
         // INVADERS CREATION
         for(let i = 0; i < 3; i++){
             if(i == 0){
-                var x = 50;
+                var x = 55;
                 var y = 40;
                 for(let i = 0; i < 10; i++){
                     this.invader = new Invaders(x,y);
@@ -43,7 +42,7 @@ class Game{
                     x+=40;
                 }
             }else if(i == 1){
-                var x = 50;
+                var x = 55;
                 var y = 60;
                 for(let i = 0; i < 10; i++){
                     this.invader = new Invaders(x,y);
@@ -52,7 +51,7 @@ class Game{
                     x+=40;
                 }
             }else if(i == 2){
-                var x = 50;
+                var x = 55;
                 var y = 80;
                 for(let i = 0; i < 10; i++){
                     this.invader = new Invaders(x,y);
@@ -140,27 +139,12 @@ class Game{
                 }
             }
 
-            // Advance of the Invaders
-            
-            for(let i = 0; i < this.invaders.length; i++){                
-                if(this.invaders[i].x <= 0){
-                    this.invadersDirection = true;
-                }
-                if(this.invaders[i].x >= 500){
-                    this.invadersDirection = false;
-                }
-
-                if(this.invadersDirection = true){
-                    this.invaders[i].move("right");
-                    this.invaders[i].move("front");
-                    this.invaders[i].print();
-                }else{
-                    this.invaders[i].move("left");
-                    this.invaders[i].move("front");
-                    this.invaders[i].print();
-                }
-                
+            // Advance of the Invaders            
+            for(let i = 0; i < this.invaders.length; i++){
+                this.invaders[i].move();
+                this.invaders[i].print();
             }
+
         },10);
     }
 }
