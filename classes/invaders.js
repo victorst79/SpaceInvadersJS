@@ -22,7 +22,7 @@ export class Invaders{
         if(this.counter >= 0 && this.counter <= 19){
             this.x += 0.5;
         }
-        if(this.counter >= 79 && this.counter <= 99){
+        if(this.counter >= 80 && this.counter <= 99){
             this.x -= 0.5;
         }
     }

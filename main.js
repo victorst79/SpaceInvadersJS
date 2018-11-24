@@ -133,18 +133,36 @@ class Game{
                     if(this.bullets[i].y <= 0){
                         this.bullets[i].bullet.remove();
                     }else{
-                        this.bullets[i].move();
+                        this.bullets[i].move();                        
                         this.bullets[i].print();
-                    }   
+                    }
+                    
+                    for(let j = 0; j < this.invaders.length; j++){
+                        if(this.bullets[i].y == (this.invaders[j].y + 25)){
+                            if(this.bullets[i].x >= this.invaders[j].x  && this.bullets[i].x <= (this.invaders[j].x + 10)){
+                                this.bullets[i].bullet.remove();
+                                this.invaders[j].alien.remove();
+                            }
+                        }
+                    }
                 }
             }
 
             // Advance of the Invaders            
-            for(let i = 0; i < this.invaders.length; i++){
-                this.invaders[i].move();
-                this.invaders[i].print();
+            
+            if(this.invaders.length != 0){
+                for(let i = 0; i < this.invaders.length; i++){
+                    if(this.invaders[i].y == 440){
+                        console.log("GAME LOST");
+                        break;
+                    }else{
+                        this.invaders[i].move();
+                        this.invaders[i].print();
+                    }
+                }
+            }else{
+                alert("Juego Finalizado");
             }
-
         },10);
     }
 }
