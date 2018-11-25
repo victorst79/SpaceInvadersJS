@@ -136,15 +136,6 @@ class Game{
                         this.bullets[i].move();                        
                         this.bullets[i].print();
                     }
-                    
-                    for(let j = 0; j < this.invaders.length; j++){
-                        if(this.bullets[i].y == (this.invaders[j].y + 25)){
-                            if(this.bullets[i].x >= this.invaders[j].x  && this.bullets[i].x <= (this.invaders[j].x + 10)){
-                                this.bullets[i].bullet.remove();
-                                this.invaders[j].alien.remove();
-                            }
-                        }
-                    }
                 }
             }
 
@@ -155,7 +146,7 @@ class Game{
                     if(this.invaders[i].y == 440){
                         console.log("GAME LOST");
                         break;
-                    }else{
+                    }else if(this.invaders[i].y < 440){
                         this.invaders[i].move();
                         this.invaders[i].print();
                     }
