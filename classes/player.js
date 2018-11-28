@@ -23,7 +23,7 @@ export class Player{
         this.ship.setAttribute("x", this.x);
         this.ship.setAttribute("y", this.y);
     }
-
+    
     /**
     * Set the direction in which the object `Player` will move in the game.
     * 

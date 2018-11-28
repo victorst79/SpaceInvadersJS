@@ -169,10 +169,14 @@ class Game{
     }
 }
 
-// INITIAL THE GAME
-document.getElementById("play-button").addEventListener("click",() => {
-    var game = new Game("game");
-    game.init();    
-});
+new Game("game").init();
 
-// document.getElementById("game").removeChild(game.gameScreen);
+// INITIAL THE GAME
+// document.getElementById("play-button").addEventListener("click",() => {
+//     var game = new Game("game").init(); 
+//     document.getElementById("game").removeChild(game.gameScreen);
+//     var game = null;
+//     game = new Game("game");
+//     game.init();    
+// });
+
