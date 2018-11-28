@@ -85,8 +85,8 @@ class Game{
                 document.getElementById("game-screen").appendChild(this.bullet.bullet);
 
                 // SHOOT AUDIO EVENT
-                var audio = new Audio('./resources/sounds/shoot.wav');
-                audio.play();
+                var audio_shoot = new Audio('./resources/sounds/shoot.wav');
+                audio_shoot.play();
             }            
         });
 
@@ -136,16 +136,26 @@ class Game{
                         this.bullets[i].move();                        
                         this.bullets[i].print();
                     }
+                    for(let j = 0; j < this.invaders.length; j++){
+                        if(this.bullets[i].y >= this.invaders[j].y && this.bullets[i].y <= (this.invaders[j].y + 15)){
+                            if(this.bullets[i].x >= this.invaders[j].x && (this.bullets[i].x + 10) <= (this.invaders[j].x + 20)){
+                                document.getElementById("game-screen").removeChild(this.bullets[i].bullet);
+                                this.bullets.splice(i,1);
+                                document.getElementById("game-screen").removeChild(this.invaders[j].alien);
+                                this.invaders.splice(j,1);
+                                var audio_explosion = new Audio('./resources/sounds/invaderkilled.wav');
+                                audio_explosion.play();                               
+                            }
+                        }
+                    }
                 }
             }
 
             // Advance of the Invaders            
-            
             if(this.invaders.length != 0){
                 for(let i = 0; i < this.invaders.length; i++){
-                    if(this.invaders[i].y == 440){
-                        console.log("GAME LOST");
-                        break;
+                    if(this.invaders[i].y >= 440){
+                        console.log("Game Lost");
                     }else if(this.invaders[i].y < 440){
                         this.invaders[i].move();
                         this.invaders[i].print();
@@ -159,4 +169,12 @@ class Game{
 }
 
 // INITIAL THE GAME
-new Game("game").init();
+var game;
+document.getElementById("play-button").addEventListener("click",() => {
+    // document.getElementById("game").removeChild(game.gameScreen);
+    game = null;
+    game = new Game("game");
+    game.init();
+            
+    
+});

@@ -12,8 +12,6 @@ export class Player{
         // Player's initial position
         this.x = x;
         this.y = y;
-        // Speed
-        this.speed = 1;
         // Player Health
         this.health = health;
         // HTML Element
