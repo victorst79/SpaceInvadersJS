@@ -136,6 +136,7 @@ class Game{
                         this.bullets[i].move();                        
                         this.bullets[i].print();
                     }
+                    // Invaders collision with Projectile
                     for(let j = 0; j < this.invaders.length; j++){
                         if(this.bullets[i].y >= this.invaders[j].y && this.bullets[i].y <= (this.invaders[j].y + 15)){
                             if(this.bullets[i].x >= this.invaders[j].x && (this.bullets[i].x + 10) <= (this.invaders[j].x + 20)){
@@ -169,12 +170,9 @@ class Game{
 }
 
 // INITIAL THE GAME
-var game;
 document.getElementById("play-button").addEventListener("click",() => {
-    // document.getElementById("game").removeChild(game.gameScreen);
-    game = null;
-    game = new Game("game");
-    game.init();
-            
-    
+    var game = new Game("game");
+    game.init();    
 });
+
+// document.getElementById("game").removeChild(game.gameScreen);

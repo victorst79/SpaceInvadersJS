@@ -24,7 +24,7 @@ img.title{
     margin-top: 50px;
 }
 
-button{
+button#play-button{
     margin-top: 20px;
     display: inline-block;
     position: relative;
@@ -39,6 +39,6 @@ button{
 
 }
 
-button:hover{
+button#play-button:hover{
     background-color: #27ae60;
   }
